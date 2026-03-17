@@ -1,0 +1,289 @@
+[
+  {
+    "id": "sandworm",
+    "name": "Sandworm",
+    "country": "Russia",
+    "summary": "GRU-linked actor repeatedly associated with disruptive and destructive operations against infrastructure, communications and regional adversaries.",
+    "description": "Sandworm is one of the most consistently publicly attributed Russian military cyber actors. Joint advisories from the UK and U.S. governments connect Sandworm to GRU activity and link the actor to operations ranging from NotPetya to Cyclops Blink and other infrastructure-focused campaigns. Public reporting often shows a blend of espionage access, sabotage and strategic signaling.",
+    "aliases": [
+      "APT44",
+      "Voodoo Bear",
+      "Seashell Blizzard"
+    ],
+    "objective": "Disruption, sabotage and strategic pressure",
+    "status": "Active",
+    "focus_areas": [
+      "Critical infrastructure",
+      "Telecommunications",
+      "Government and defense",
+      "Regional coercion"
+    ],
+    "techniques": [
+      "Wiper deployment",
+      "Supply-chain compromise",
+      "Edge device compromise",
+      "Living off the land",
+      "Operational disruption"
+    ],
+    "sources": [
+      {
+        "label": "NCSC / CISA joint notice on Cyclops Blink",
+        "url": "https://www.ncsc.gov.uk/news/joint-advisory-shows-new-sandworm-malware-cyclops-blink-replaces-vpnfilter"
+      },
+      {
+        "label": "CISA Russia state-sponsored cyber threat publications",
+        "url": "https://www.cisa.gov/topics/cyber-threats-and-advisories/nation-state-cyber-actors/russia/publications"
+      }
+    ]
+  },
+  {
+    "id": "apt29",
+    "name": "APT29",
+    "country": "Russia",
+    "summary": "Stealth-focused espionage actor commonly linked to the Russian Foreign Intelligence Service.",
+    "description": "APT29 is best known publicly for long-term intelligence collection, cloud and email targeting, and highly selective post-compromise tradecraft. Joint advisories and government statements associate the group with the Russian SVR and with operations that emphasize persistence and information theft over noisy disruption.",
+    "aliases": [
+      "Cozy Bear",
+      "The Dukes",
+      "Midnight Blizzard"
+    ],
+    "objective": "Espionage and strategic intelligence collection",
+    "status": "Active",
+    "focus_areas": [
+      "Government",
+      "Diplomatic entities",
+      "Technology providers",
+      "Cloud and identity systems"
+    ],
+    "techniques": [
+      "Supply-chain compromise",
+      "Credential theft",
+      "Stealthy persistence",
+      "Cloud account targeting",
+      "Token abuse"
+    ],
+    "sources": [
+      {
+        "label": "CISA / FBI / NSA advisory on Russian SVR cyber operations",
+        "url": "https://www.cisa.gov/news-events/alerts/2021/04/26/fbi-dhs-cisa-joint-advisory-russian-foreign-intelligence-service-cyber-operations"
+      },
+      {
+        "label": "NCSC advisory on APT29 targeting vaccine development",
+        "url": "https://www.ncsc.gov.uk/news/advisory-apt29-targets-covid-19-vaccine-development"
+      }
+    ]
+  },
+  {
+    "id": "apt28",
+    "name": "APT28",
+    "country": "Russia",
+    "summary": "Russian GRU actor known for aggressive espionage, credential operations and infrastructure abuse.",
+    "description": "APT28 has been publicly tied by the UK and U.S. governments to Russia’s GRU Unit 26165. Public case material shows the actor using a mix of phishing, credential operations, router exploitation and bespoke tooling to support military and intelligence collection priorities.",
+    "aliases": [
+      "Fancy Bear",
+      "Sofacy",
+      "Sednit",
+      "Forest Blizzard"
+    ],
+    "objective": "Military and political intelligence collection",
+    "status": "Active",
+    "focus_areas": [
+      "Government",
+      "Defense",
+      "Political organizations",
+      "Network infrastructure"
+    ],
+    "techniques": [
+      "Phishing",
+      "Credential abuse",
+      "Router exploitation",
+      "Malware deployment",
+      "Reconnaissance"
+    ],
+    "sources": [
+      {
+        "label": "NCSC advisory on APT28 exploitation of Cisco routers",
+        "url": "https://www.ncsc.gov.uk/news/apt28-exploits-known-vulnerability-to-carry-out-reconnaissance-and-deploy-malware-on-cisco-routers"
+      },
+      {
+        "label": "CISA advisory AA23-108",
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-108"
+      }
+    ]
+  },
+  {
+    "id": "storm-0558",
+    "name": "Storm-0558",
+    "country": "China",
+    "summary": "China-based espionage actor publicly tied by Microsoft to targeted email access using forged authentication tokens.",
+    "description": "Storm-0558 entered public view after Microsoft disclosed an intrusion affecting customer email accounts in 2023. Microsoft described the actor as China-based, focused on espionage, data theft and credential access, with particular interest in government agencies in Western Europe and related individuals.",
+    "aliases": [
+      "No public government alias consensus"
+    ],
+    "objective": "Cloud and diplomatic intelligence collection",
+    "status": "Active",
+    "focus_areas": [
+      "Government email",
+      "Cloud identity",
+      "Diplomatic targets"
+    ],
+    "techniques": [
+      "Token forgery",
+      "Cloud email access",
+      "Credential abuse",
+      "Targeted mailbox collection"
+    ],
+    "sources": [
+      {
+        "label": "Microsoft MSRC disclosure on Storm-0558",
+        "url": "https://www.microsoft.com/en-us/msrc/blog/2023/07/microsoft-mitigates-china-based-threat-actor-storm-0558-targeting-of-customer-email"
+      },
+      {
+        "label": "Microsoft Security analysis of Storm-0558 techniques",
+        "url": "https://www.microsoft.com/en-us/security/blog/2023/07/14/analysis-of-storm-0558-techniques-for-unauthorized-email-access/"
+      }
+    ]
+  },
+  {
+    "id": "volt-typhoon",
+    "name": "Volt Typhoon",
+    "country": "China",
+    "summary": "PRC state-sponsored actor known for stealthy access to critical infrastructure through living-off-the-land techniques.",
+    "description": "Public reporting from Microsoft and later U.S. government advisories frame Volt Typhoon as a strategically important actor because of its focus on critical infrastructure pre-positioning. Rather than relying heavily on custom malware, the group is known for hands-on-keyboard operations and abuse of native tools to minimize detection.",
+    "aliases": [
+      "Volt Typhoon is Microsoft nomenclature"
+    ],
+    "objective": "Espionage and potential pre-positioning for disruption",
+    "status": "Active",
+    "focus_areas": [
+      "Critical infrastructure",
+      "Telecommunications",
+      "Transportation",
+      "IT and OT-adjacent environments"
+    ],
+    "techniques": [
+      "Living off the land",
+      "Credential access",
+      "Network discovery",
+      "Long-term persistence"
+    ],
+    "sources": [
+      {
+        "label": "Microsoft Volt Typhoon disclosure",
+        "url": "https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/"
+      },
+      {
+        "label": "CISA fact sheet for critical infrastructure leaders",
+        "url": "https://www.cisa.gov/resources-tools/resources/prc-state-sponsored-cyber-activity-actions-critical-infrastructure-leaders"
+      }
+    ]
+  },
+  {
+    "id": "unc3886",
+    "name": "UNC3886",
+    "country": "China",
+    "summary": "China-nexus espionage actor focused on edge, virtualization and high-trust infrastructure targets.",
+    "description": "Mandiant has repeatedly described UNC3886 as a highly advanced China-nexus espionage group with strong tradecraft around virtualization and appliance compromises. The group stands out for targeting vCenter, ESXi and other difficult-to-monitor layers, then using custom backdoors and careful post-compromise steps to protect access.",
+    "aliases": [
+      "No stable public government alias consensus"
+    ],
+    "objective": "Long-term access to high-value enterprise infrastructure",
+    "status": "Active",
+    "focus_areas": [
+      "Virtualization infrastructure",
+      "Network appliances",
+      "Government and telecom targets",
+      "High-security enterprise environments"
+    ],
+    "techniques": [
+      "VMware exploitation",
+      "Zero-day or n-day exploitation",
+      "Custom backdoors",
+      "Stealthy persistence"
+    ],
+    "sources": [
+      {
+        "label": "Mandiant / VMware Product Security report on UNC3886 and vCenter",
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/chinese-vmware-exploitation-since-2021/"
+      },
+      {
+        "label": "Mandiant report on UNC3886 espionage operations",
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/uncovering-unc3886-espionage-operations"
+      }
+    ]
+  },
+  {
+    "id": "lazarus",
+    "name": "Lazarus Group",
+    "country": "North Korea",
+    "summary": "North Korean state-sponsored umbrella actor associated with espionage, sabotage, ransomware and financially motivated cyber operations.",
+    "description": "Lazarus is one of the best known DPRK cyber group names in public reporting. The U.S. Treasury formally identified Lazarus, Bluenoroff and Andariel as agencies, instrumentalities or controlled entities of the Government of North Korea based on their relationship to the Reconnaissance General Bureau. Public casework spans WannaCry, destructive intrusions, financial theft and supply-chain activity.",
+    "aliases": [
+      "Hidden Cobra",
+      "Labyrinth Chollima",
+      "Zinc"
+    ],
+    "objective": "Revenue generation, espionage and strategic disruption",
+    "status": "Active",
+    "focus_areas": [
+      "Financial systems",
+      "Software supply chains",
+      "Government and defense",
+      "Cryptocurrency ecosystem"
+    ],
+    "techniques": [
+      "Ransomware",
+      "Supply-chain compromise",
+      "Custom malware",
+      "Credential theft",
+      "Social engineering"
+    ],
+    "sources": [
+      {
+        "label": "U.S. Treasury sanctions targeting Lazarus Group",
+        "url": "https://home.treasury.gov/news/press-releases/sm774"
+      },
+      {
+        "label": "CISA guidance on the North Korean cyber threat",
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-106a"
+      }
+    ]
+  },
+  {
+    "id": "turla",
+    "name": "Turla",
+    "country": "Russia",
+    "summary": "FSB-linked espionage actor associated with the long-running Snake malware ecosystem and other stealthy collection operations.",
+    "description": "Turla is publicly tied by U.S. authorities to a unit within Center 16 of Russia’s Federal Security Service. The group is widely known for long-lived espionage campaigns, covert routing infrastructure and carefully engineered malware families used against governments, diplomatic entities, journalists and research targets.",
+    "aliases": [
+      "Snake",
+      "Uroburos",
+      "Venomous Bear",
+      "Waterbug"
+    ],
+    "objective": "Long-term intelligence collection",
+    "status": "Active",
+    "focus_areas": [
+      "Government",
+      "Diplomatic communications",
+      "Research institutions",
+      "Journalists and sensitive networks"
+    ],
+    "techniques": [
+      "Long-term malware implants",
+      "Peer-to-peer covert routing",
+      "Credential theft",
+      "Selective exfiltration"
+    ],
+    "sources": [
+      {
+        "label": "DOJ announcement on Operation MEDUSA and Snake",
+        "url": "https://www.justice.gov/archives/opa/pr/justice-department-announces-court-authorized-disruption-snake-malware-network-controlled"
+      },
+      {
+        "label": "NSA statement on Snake infrastructure identification",
+        "url": "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/3389044/us-agencies-and-allies-partner-to-identify-russian-snake-malware-infrastructure/"
+      }
+    ]
+  }
+]
