@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Footprints</title>
+  <meta name="description" content="A personal notebook of verified state-linked cyber incidents, threat actors, and research notes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-shell">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">CF</span>
+      <span>Cyber Footprints</span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="attacks.html">Attacks</a>
+      <a href="groups.html">Groups</a>
+      <a href="posts.html">Notes</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Threat research notebook</p>
+          <h1>Cyber Footprints</h1>
+          <p class="lead">
+            A personal archive of verified state-linked cyber operations, actor profiles, and analytical notes.
+            The focus is on cases with a solid public record: government advisories, court documents,
+            sanctions material, incident-owner disclosures, and named investigations.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="attacks.html">Browse incidents</a>
+            <a class="button button-secondary" href="posts.html">Read notes</a>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <h2>What this site tracks</h2>
+          <ul class="clean-list stat-list">
+            <li><strong id="hero-incident-count">0</strong><span>Documented incidents</span></li>
+            <li><strong id="hero-group-count">0</strong><span>Tracked groups</span></li>
+            <li><strong id="hero-post-count">0</strong><span>Published notes</span></li>
+            <li><strong>Map</strong><span>Attack locations and impacted countries</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Overview map</p>
+            <h2>Interactive incident map</h2>
+          </div>
+          <div class="filters-inline">
+            <label>
+              <span class="label-text">Filter by group</span>
+              <select id="group-filter">
+                <option value="all">All groups</option>
+              </select>
+            </label>
+            <label>
+              <span class="label-text">Filter by region</span>
+              <select id="region-filter">
+                <option value="all">All regions</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="map-shell">
+          <div id="incident-map" aria-label="Map of incidents"></div>
+          <aside class="map-sidebar">
+            <h3>Visible incidents</h3>
+            <div id="map-results" class="card-stack"></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Recent entries</p>
+            <h2>Latest incident files</h2>
+          </div>
+          <a class="text-link" href="attacks.html">See all incidents</a>
+        </div>
+        <div id="featured-incidents" class="card-grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Actor profiles</p>
+            <h2>Tracked groups</h2>
+          </div>
+          <a class="text-link" href="groups.html">See all groups</a>
+        </div>
+        <div id="featured-groups" class="card-grid"></div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">Notebook</p>
+            <h2>Latest notes</h2>
+          </div>
+          <a class="text-link" href="posts.html">Open notes</a>
+        </div>
+        <div id="latest-posts" class="card-grid card-grid-wide"></div>
+      </div>
+    </section>
+  </main>
+
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>Cyber Footprints · Personal cyber research notebook</p>
+    <p>Built for GitHub Pages</p>
+  </div>
+</footer>
+
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="./assets/js/site-data.js"></script>
+  <script src="./assets/js/common.js"></script>
+  <script src="./assets/js/home.js"></script>
+</body>
+</html>
