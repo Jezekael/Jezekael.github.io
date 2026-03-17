@@ -1,0 +1,22 @@
+[
+  {
+    "id": "welcome-to-cyber-footprints",
+    "title": "Welcome to Cyber Footprints",
+    "date": "2026-03-17",
+    "category": "Site note",
+    "excerpt": "A short introduction to the project, what it tracks, and how incident pages and actor profiles are selected.",
+    "summary": "Cyber Footprints is a personal research notebook dedicated to publicly documented state-linked cyber operations. The goal is not to publish hot takes or speculation, but to keep a structured archive of cases where the public record is strong enough to be useful.",
+    "content": [
+      "Cyber Footprints is a personal archive of publicly reported and publicly attributed cyber operations linked to state actors or state-aligned groups.",
+      "The site is organized around three ideas: a map-based overview, incident pages that summarize what happened and why it mattered, and actor profiles that make it easier to connect campaigns over time.",
+      "For now, the project starts with a small set of documented cases and a simple publishing workflow on GitHub Pages. Over time, I want to expand the archive, refine source grading, and add more structured notes on tradecraft, targeting, and operational patterns.",
+      "The editorial rule is straightforward: if the attribution is weak or mostly speculative, it does not belong here yet. Preference goes to government advisories, court filings, sanctions material, incident-owner disclosures, and named investigations from established security teams."
+    ],
+    "tags": [
+      "welcome",
+      "editorial",
+      "methodology"
+    ],
+    "featured": true
+  }
+]
