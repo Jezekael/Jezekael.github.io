@@ -285,5 +285,217 @@
         "url": "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/3389044/us-agencies-and-allies-partner-to-identify-russian-snake-malware-infrastructure/"
       }
     ]
+  },
+  {
+    "id": "salt-typhoon",
+    "name": "Salt Typhoon",
+    "country": "China",
+    "summary": "PRC-affiliated espionage actor associated in public U.S. government reporting with compromises of major telecommunications infrastructure and other network access operations.",
+    "description": "Salt Typhoon is the industry name most commonly used for a PRC-linked espionage cluster associated with sustained access to telecommunications infrastructure. U.S. government reporting in late 2024 and 2025 described unauthorized access to commercial telecommunications providers by PRC-affiliated actors, and later advisory language noted partial overlap with activity commonly referred to as Salt Typhoon. The public picture emphasizes strategic intelligence collection, infrastructure access, and long-term operational persistence rather than noisy disruption.",
+    "aliases": [
+      "RedMike (industry reporting)",
+      "GhostEmperor overlap discussed in some industry reporting"
+    ],
+    "objective": "Strategic espionage and long-term infrastructure access",
+    "status": "Active",
+    "focus_areas": [
+      "Telecommunications",
+      "Critical infrastructure",
+      "Network edge services",
+      "Strategic intelligence collection"
+    ],
+    "techniques": [
+      "Credential theft",
+      "Remote access abuse",
+      "Persistence in provider environments",
+      "Living off the land"
+    ],
+    "sources": [
+      {
+        "label": "FBI and CISA joint statement on PRC activity targeting telecommunications",
+        "url": "https://www.cisa.gov/news-events/news/joint-statement-fbi-and-cisa-prc-activity-targeting-telecommunications"
+      },
+      {
+        "label": "CISA advisory AA25-239A on China state-sponsored actors",
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-239a"
+      }
+    ]
+  },
+  {
+    "id": "unc4841",
+    "name": "UNC4841",
+    "country": "China nexus",
+    "summary": "A well-resourced espionage actor identified by Mandiant in Barracuda ESG zero-day exploitation and assessed with high confidence to support the PRC.",
+    "description": "UNC4841 came into public view through the exploitation of Barracuda Email Security Gateway appliances. Mandiant assessed with high confidence that the actor is engaged in espionage in support of the People's Republic of China. The campaign is notable for using network appliances as a covert access layer, then adapting malware and persistence quickly in response to remediation.",
+    "aliases": [
+      "SLIME57 (Malpedia)"
+    ],
+    "objective": "Espionage via appliance compromise and durable persistence",
+    "status": "Active",
+    "focus_areas": [
+      "Email security gateways",
+      "Government targets",
+      "Technology sector",
+      "Telecommunications"
+    ],
+    "techniques": [
+      "Zero-day exploitation",
+      "Appliance persistence",
+      "Malware masquerading as legitimate modules",
+      "Selective lateral movement"
+    ],
+    "sources": [
+      {
+        "label": "Mandiant on Barracuda ESG exploitation by UNC4841",
+        "url": "https://cloud.google.com/blog/topics/threat-intelligence/barracuda-esg-exploited-globally/"
+      },
+      {
+        "label": "Barracuda ESG vulnerability notice",
+        "url": "https://trust.barracuda.com/security/information/esg-vulnerability"
+      }
+    ]
+  },
+  {
+    "id": "apt27",
+    "name": "APT27",
+    "country": "China",
+    "summary": "Long-running China-linked intrusion actor publicly associated in recent DOJ material with hacking-for-profit operations against U.S. and foreign organizations.",
+    "description": "APT27 is a long-established China-linked intrusion set that has appeared in public reporting for years under multiple vendor names. In 2025, U.S. Department of Justice charging material tied alleged Chinese hackers with PRC government links to a years-long campaign targeting U.S. technology firms, municipalities, universities, defense contractors, think tanks, and other organizations for theft and later resale of data.",
+    "aliases": [
+      "Silk Typhoon",
+      "UNC5221",
+      "UTA0178"
+    ],
+    "objective": "Espionage, theft, and profit-driven intrusion under state protection",
+    "status": "Active",
+    "focus_areas": [
+      "Technology companies",
+      "Government",
+      "Defense contractors",
+      "Universities and municipalities"
+    ],
+    "techniques": [
+      "Data exfiltration",
+      "Credential abuse",
+      "Persistence in enterprise networks",
+      "Use of contractor ecosystems"
+    ],
+    "sources": [
+      {
+        "label": "DOJ press release on APT27-linked hackers-for-profit activity",
+        "url": "https://www.justice.gov/usao-dc/pr/chinese-nationals-ties-prc-government-and-apt27-charged-computer-hacking-campaign-profit"
+      },
+      {
+        "label": "DOJ broader charging announcement on PRC hacker-for-hire ecosystem",
+        "url": "https://www.justice.gov/opa/pr/justice-department-charges-12-chinese-contract-hackers-and-law-enforcement-officers-global"
+      }
+    ]
+  },
+  {
+    "id": "apt31",
+    "name": "APT31",
+    "country": "China",
+    "summary": "China MSS-linked espionage actor publicly described by DOJ as part of a hacking program targeting dissidents, politicians, campaign staff, and strategic industries.",
+    "description": "APT31 is one of the clearest examples of a China-linked group described in both private sector and government language as a long-running cyber espionage actor. U.S. Department of Justice material states that the APT31 Group was part of a cyberespionage program run by the MSS Hubei State Security Department and had targeted thousands of individuals and companies since at least 2010.",
+    "aliases": [
+      "Zirconium",
+      "Judgment Panda",
+      "Violet Typhoon"
+    ],
+    "objective": "Political and economic espionage, including transnational repression support",
+    "status": "Active",
+    "focus_areas": [
+      "Government officials",
+      "Political organizations",
+      "Dissidents",
+      "Defense and telecom sectors"
+    ],
+    "techniques": [
+      "Tracking-link phishing",
+      "Zero-day exploitation",
+      "Router and device compromise",
+      "Long-term email surveillance"
+    ],
+    "sources": [
+      {
+        "label": "DOJ press release on APT31 charges",
+        "url": "https://www.justice.gov/archives/opa/pr/seven-hackers-associated-chinese-government-charged-computer-intrusions-targeting-perceived"
+      },
+      {
+        "label": "State Department statement on actions against PRC cyber activity",
+        "url": "https://2021-2025.state.gov/u-s-takes-action-to-further-disrupt-prc-cyber-activities/"
+      }
+    ]
+  },
+  {
+    "id": "apt40",
+    "name": "APT40",
+    "country": "China",
+    "summary": "PRC MSS-linked actor highlighted by CISA and partner agencies for rapid exploitation of public proof-of-concept vulnerabilities and sustained regional espionage.",
+    "description": "APT40 is a China-linked espionage actor that has repeatedly targeted governments and organizations in the Asia-Pacific region. A 2024 joint advisory from CISA, the FBI, NSA, ACSC, and partners described the group's tradecraft in action and noted its habit of rapidly weaponizing public exploit proof-of-concepts against vulnerable public-facing infrastructure.",
+    "aliases": [
+      "Leviathan",
+      "Kryptonite Panda",
+      "Bronze Mohawk"
+    ],
+    "objective": "Regional and strategic espionage",
+    "status": "Active",
+    "focus_areas": [
+      "Government",
+      "Managed services",
+      "Public-facing applications",
+      "Asia-Pacific targets"
+    ],
+    "techniques": [
+      "Rapid exploitation of public vulnerabilities",
+      "Credential harvesting",
+      "Web shells",
+      "Persistence with legitimate credentials"
+    ],
+    "sources": [
+      {
+        "label": "CISA advisory AA24-190A on APT40 tradecraft",
+        "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-190a"
+      },
+      {
+        "label": "CISA alert announcing APT40 advisory",
+        "url": "https://www.cisa.gov/news-events/alerts/2024/07/08/cisa-and-partners-join-asds-acsc-release-advisory-prc-state-sponsored-group-apt-40"
+      }
+    ]
+  },
+  {
+    "id": "apt41",
+    "name": "APT41",
+    "country": "China",
+    "summary": "Chinese intrusion group described by the FBI as APT41/BARIUM and linked to broad global campaigns including supply-chain intrusions and telecom targeting.",
+    "description": "APT41 is unusual in public reporting because it has been associated with both state-linked espionage and financially motivated activity. FBI material identifies named defendants as members of APT41/BARIUM and describes intrusions into hundreds of companies across sectors such as telecommunications, government, defense, social media, education, and manufacturing, including supply-chain attacks and ransomware deployment.",
+    "aliases": [
+      "BARIUM",
+      "Winnti overlap in some reporting"
+    ],
+    "objective": "Espionage and opportunistic monetization",
+    "status": "Active",
+    "focus_areas": [
+      "Telecommunications",
+      "Software supply chains",
+      "Gaming and technology firms",
+      "Government and defense"
+    ],
+    "techniques": [
+      "Supply-chain compromise",
+      "Ransomware deployment",
+      "Credential theft",
+      "Broad enterprise intrusion"
+    ],
+    "sources": [
+      {
+        "label": "FBI wanted page for APT41 group",
+        "url": "https://www.fbi.gov/wanted/cyber/apt-41-group"
+      },
+      {
+        "label": "DOJ charges against APT41 actors and associates",
+        "url": "https://www.justice.gov/opa/pr/seven-international-cyber-defendants-including-apt41-actors-charged-connection-computer"
+      }
+    ]
   }
 ]
