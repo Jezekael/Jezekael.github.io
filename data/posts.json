@@ -1,5 +1,47 @@
 [
   {
+    "id": "tls-cert-lifetimes-acme-automation",
+    "title": "TLS certificate lifetimes are shrinking. Manual renewal is over.",
+    "date": "2026-03-20",
+    "category": "Research note",
+    "excerpt": "The CA/Browser Forum timeline to 200-day, 100-day, and then 47-day public TLS certificates turns certificate automation into an operational requirement.",
+    "summary": "The public TLS ecosystem has crossed an operational threshold. Shorter certificate lifetimes mean certificate lifecycle management has to move from reminder-driven administration to reliable automation, with ACME at the center for most environments.",
+    "content": [
+      "The practical message behind the latest certificate-validity changes is simple: the old annual-renewal habit is finished. The maximum validity period for public TLS certificates drops to 200 days in March 2026, then 100 days in 2027, and 47 days in 2029. At that point, any environment still relying on calendar reminders, spreadsheets, or manual CSR workflows is carrying avoidable outage risk.",
+      "That is why ACME matters so much. Once certificate lifetimes become this short, the real challenge is not creating a certificate once. It is proving that issuance, renewal, validation, deployment, rollback, and monitoring all work reliably and repeatedly across the actual estate: reverse proxies, load balancers, VPN portals, ingress controllers, appliances, and internal ownership boundaries.",
+      "The operational implication is broader than TLS hygiene. Short-lived certificates force teams to inventory their exposed services, map control points for HTTP-01, DNS-01, or TLS-ALPN-01 challenges, and find every brittle dependency that assumes certificates change rarely. In many organizations, that work exposes hidden PKI debt faster than any architecture review would.",
+      "The other reason this topic matters now is timing. If teams are already being pushed to modernize certificate lifecycle management, this is the right moment to think about crypto agility as well. Post-quantum migration is not solved by shorter certificate lifetimes, but the same disciplines apply: inventory, automation, dependency reduction, and repeatable change management. A certificate program that cannot survive 47-day renewals will not adapt gracefully to larger cryptographic transitions either."
+    ],
+    "tags": [
+      "tls",
+      "pki",
+      "acme",
+      "automation"
+    ],
+    "featured": true
+  },
+  {
+    "id": "windows-11-notepad-tabstate-dfir",
+    "title": "Windows 11 Notepad TabState artifacts are worth collecting",
+    "date": "2026-03-20",
+    "category": "DFIR note",
+    "excerpt": "Modern Notepad can leave behind useful session artifacts under TabState, which makes it a low-cost but high-value collection target during triage.",
+    "summary": "A small Windows 11 DFIR detail can have outsized value: unsaved Notepad tab content may still be written to disk. That makes modern Notepad session artifacts worth checking during triage, especially when operators assume temporary text was never persisted.",
+    "content": [
+      "A recent field note highlighted something many responders still overlook: Windows 11 Notepad can persist unsaved tab content to disk under the application package path in LocalState TabState. That means content pasted into Notepad during an intrusion or during routine administration may survive longer than users expect, even if the text was never formally saved as a document.",
+      "From a DFIR perspective, this is useful because Notepad is often treated as operationally invisible. In reality, it is exactly the kind of low-friction scratch space where operators paste commands, credentials, hostnames, IP ranges, snippets of logs, or investigative notes. If those artifacts remain on disk, they can help reconstruct activity that would otherwise be absent from the usual document or browser trails.",
+      "The security lesson cuts both ways. Defenders should add the path to collection and triage checklists where Windows 11 endpoints are in scope. Red-team operators and attackers should read the same fact as a reminder that ephemeral habits are rarely as ephemeral as they feel. Closing a window is not the same thing as securely disposing of the underlying content.",
+      "There are limits. Session restoration behavior depends on how the application is closed and on the relevant setting for restoring previous content. That makes this an evidence source to validate, not a magic artifact that exists on every system. Even with that caveat, the collection cost is low enough that it belongs in practical DFIR workflow."
+    ],
+    "tags": [
+      "dfir",
+      "windows-11",
+      "notepad",
+      "artifacts"
+    ],
+    "featured": true
+  },
+  {
     "id": "welcome-to-cyber-footprints",
     "title": "Welcome to Cyber Footprints",
     "date": "2026-03-17",
