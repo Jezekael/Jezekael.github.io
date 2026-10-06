@@ -1,0 +1,55 @@
+{
+  "name": "Jezekael Brunon",
+  "headline": "Offensive Cyber Security Consultant · Auditor · Pentester",
+  "location": "Paris, France",
+  "links": {
+    "github": "https://github.com/Jezekael",
+    "linkedin": "https://www.linkedin.com/in/jezekael-brunon/",
+    "scholar": "https://scholar.google.com/citations?user=IgDCB5wAAAAJ&hl=en&oi=ao",
+    "email": "mailto:jezekael.brunon@gmail.com"
+  },
+  "pdf": "assets/CV.pdf",
+  "experience": [
+    {
+      "id": "exp-akvize",
+      "role": "Offensive Cyber Security Consultant · Auditor · Pentester",
+      "org": "AKVIZE",
+      "start": "2024",
+      "end": "present",
+      "summary": "Offensive security engagements: penetration testing, security audits, and red-team-style assessments.",
+      "details": {
+        "responsibilities": [
+          "TODO(jezekael): list key responsibilities (scoping, testing, reporting, client debriefs)."
+        ],
+        "stack": [
+          "TODO(jezekael): tooling you want to highlight (Burp, Kali, Metasploit, etc.)."
+        ],
+        "achievements": [
+          "TODO(jezekael): notable findings, CVEs, or engagements you can share publicly."
+        ]
+      }
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-insa",
+      "school": "INSA de Lyon",
+      "program": "TODO(jezekael): program / specialization (e.g. telecommunications & cybersecurity)",
+      "start": "TODO",
+      "end": "TODO",
+      "details": {
+        "notes": [
+          "TODO(jezekael): coursework, projects, or research you want to surface."
+        ]
+      }
+    }
+  ],
+  "skills": {
+    "offensive": ["Penetration testing", "Security auditing", "Red teaming"],
+    "research": ["Threat intelligence", "OSINT"],
+    "interests": ["RF / SDR", "CTF", "Satellite security"]
+  },
+  "certifications": [
+    { "name": "TODO(jezekael): certification name", "issuer": "TODO", "year": "20XX" }
+  ]
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set up Hack-A-Sat challenges locally · Jezekael Brunon</title>
+  <meta name="description" content="A step-by-step guide to running the open-sourced Hack-A-Sat qualifier challenges locally with Docker.">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="canonical" href="https://jezekael.github.io/blog-hackasat.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Set up Hack-A-Sat challenges locally">
+  <meta property="og:description" content="Run the open-sourced Hack-A-Sat qualifier challenges with Docker.">
+  <meta property="og:image" content="https://jezekael.github.io/assets/img/og-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav-shell">
+    <a class="brand" href="index.html"><span class="brand-mark">JB</span><span>Jezekael Brunon</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="blog.html" aria-current="page">Blog</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+    <span class="nav-sep" aria-hidden="true"></span><span class="nav-social"><a class="icon-link" href="https://github.com/Jezekael" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.57.1.78-.25.78-.55v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.79.55A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg></a><a class="icon-link" href="assets/CV.pdf" target="_blank" rel="noopener" aria-label="CV (PDF)" title="CV (PDF)"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg></a><a class="icon-link" href="https://scholar.google.com/citations?user=IgDCB5wAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a><a class="icon-link" href="https://www.linkedin.com/in/jezekael-brunon/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></span></nav>
+  </div>
+</header>
+
+<main id="main" class="section">
+  <div class="container incident-layout">
+    <article>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span>/</span><a href="blog.html">Blog</a><span>/</span><span>Hack-A-Sat setup</span>
+      </nav>
+      <header class="page-header left">
+        <p class="eyebrow">Write-up · Jan 2, 2026</p>
+        <h1>Set up Hack-A-Sat challenges locally</h1>
+        <p class="lead narrow">Every Hack-A-Sat qualifier is open-sourced by Cromulence under MIT. Here is how to build and run the challenges on your own machine.</p>
+      </header>
+
+      <section class="detail-section prose-content">
+        <h2>Prerequisites</h2>
+        <p>A Linux host (or WSL2), <strong>Docker</strong> plus build tools, <code>git</code>, <code>socat</code>, and patience for building emulator and toolchain base images. All challenge code is MIT-licensed by Cromulence.</p>
+
+        <h2>Repositories</h2>
+        <ul>
+          <li>2020 (HAS1) qualifier: <a href="https://github.com/cromulencellc/hackasat-qualifier-2020"><code>cromulencellc/hackasat-qualifier-2020</code></a> (branch <code>master</code>)</li>
+          <li>2021 (HAS2) qualifier: <a href="https://github.com/cromulencellc/hackasat-qualifier-2021"><code>cromulencellc/hackasat-qualifier-2021</code></a> (branch <code>main</code>)</li>
+          <li>2022 (HAS3) qualifier: <a href="https://github.com/cromulencellc/hackasat-qualifier-2022"><code>cromulencellc/hackasat-qualifier-2022</code></a> (branch <code>release</code>)</li>
+          <li>Tech-paper solution repos: <code>-techpapers</code> variants per year; finals under <code>hackasat-final-2020</code>, <code>-2021</code>, <code>-finals-2022</code>, <code>-finals-2023</code>.</li>
+        </ul>
+
+        <h2>What is included vs. not</h2>
+        <p><strong>Released:</strong> all challenge source, solvers, and per-challenge build infrastructure. <strong>Not released:</strong> the game host infra, scoreboard, and the <code>ticket-taker</code> / <code>lifecycle-manager</code> / <code>sat-solver</code> programs. During the live event, <code>ticket-taker</code> turned a team ticket into a <code>SEED</code> and <code>FLAG</code> and launched the container with those env vars; locally you supply them yourself.</p>
+
+        <h2>Steps</h2>
+        <ol>
+          <li>Clone a year's repo and read the root <code>README.md</code> (category → folder map) and each per-challenge <code>README.md</code>.</li>
+          <li>If a challenge uses a generator, build the base image first: <code>cd generator-base &amp;&amp; make</code>. 2021/2022 also need <code>microblaze-user-toolchain</code> for some challenges; 2020 needs <code>qemu-sparc</code>, <code>rtems</code> and <code>vmips-mips-emulator</code> for the SPARC / LaunchLink challenges.</li>
+          <li>Build the challenge: <code>cd &lt;challenge&gt; &amp;&amp; make build</code> (produces <code>&lt;name&gt;:generator</code>, <code>&lt;name&gt;:challenge</code>, <code>&lt;name&gt;:solver</code> as applicable).</li>
+          <li>Generate per-seed files (if required):</li>
+        </ol>
+        <pre><code>docker run -t --rm -v "$PWD/out":/out -e SEED=1234 -e FLAG='flag{test}' &lt;name&gt;:generator</code></pre>
+        <p>Run the challenge locally:</p>
+        <pre><code># simple
+docker run --rm -i -e SEED=1234 -e FLAG='flag{test}' &lt;name&gt;:challenge
+
+# with generated files
+docker run --rm -i -e DIR=/mnt -v "$PWD/out":/mnt -e SEED=1234 -e FLAG='flag{test}' &lt;name&gt;:challenge
+
+# expose a port without xinetd
+socat -v tcp-listen:5000,reuseaddr "exec:docker run --rm -i -e SEED=1234 -e FLAG='flag{test}' &lt;name&gt;\:challenge"</code></pre>
+        <p>(Escape colons inside the <code>exec:</code> string with backslashes.) Verify with the solver:</p>
+        <pre><code>docker run -it --rm -e HOST=127.0.0.1 -e PORT=5000 &lt;name&gt;:solver</code></pre>
+        <p>To reproduce the exact instance a team received in the live game, use the year's tickets → seeds "decoder ring" CSV in the repo root (e.g. <code>2022_tickets_export_2022_06_27.csv</code>).</p>
+
+        <h2>Common pitfalls</h2>
+        <ul>
+          <li>Forgetting to build <code>generator-base</code> / the toolchain first.</li>
+          <li>Missing <code>SEED</code> / <code>FLAG</code> env vars.</li>
+          <li>Colon-escaping in <code>socat</code>.</li>
+          <li>Emulator images (QEMU-SPARC, vmips, MicroBlaze) being slow and large to build.</li>
+          <li>Solvers implement <em>a</em> solution, not necessarily <em>the</em> only one.</li>
+          <li>Some challenges need a managed connection (<code>SERVICE_HOST</code> / <code>SERVICE_PORT</code>) the local infra does not replicate.</li>
+        </ul>
+        <p>Looking for per-challenge write-ups? See the <a class="text-link" href="hackasat.html">Hack-A-Sat write-ups index</a>.</p>
+      </section>
+    </article>
+
+    <aside class="detail-sidebar">
+      <div class="meta-card">
+        <h3>Post info</h3>
+        <dl class="meta-list">
+          <div><dt>Published</dt><dd>Jan 2, 2026</dd></div>
+          <div><dt>Category</dt><dd>Write-up / guide</dd></div>
+          <div><dt>License</dt><dd>Challenges: MIT (Cromulence)</dd></div>
+        </dl>
+      </div>
+      <div class="meta-card">
+        <h3>Tags</h3>
+        <ul class="tag-list"><li>ctf</li><li>space</li><li>hack-a-sat</li><li>docker</li></ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>Jezekael Brunon</p>
+    <div class="footer-links">
+      <a href="attacks.html">Attacks</a>
+      <a href="groups.html">Groups</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/Jezekael">GitHub</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

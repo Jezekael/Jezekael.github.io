@@ -19,7 +19,10 @@ async function loadDataset() {
     if (embeddedData.incidents && embeddedData.groups) {
       dataStore.incidents = embeddedData.incidents;
       dataStore.groups = embeddedData.groups;
-      dataStore.posts = embeddedData.posts || [];
+      // Posts are not embedded in site-data.js, so always try to fetch them
+      // (falling back gracefully) instead of defaulting to an empty list.
+      dataStore.posts = embeddedData.posts
+        || (await fetchJson('data/posts.json').catch(() => []));
       return dataStore;
     }
 

@@ -1,4 +1,10 @@
 window.CYBER_FOOTPRINTS_DATA = {
+  "features": [
+    { "type": "blog", "title": "How realistic are the hacks in Mr. Robot?", "slug": "blog-mr-robot.html", "date": "2026-02-01", "summary": "A hack-by-hack feasibility catalogue of the show's exploits, with realism ratings and the real tools behind each scene.", "tags": ["mr-robot", "analysis"] },
+    { "type": "project", "title": "Satellite eavesdropper station", "slug": "blog-satellite.html", "date": "2026-01-15", "summary": "Building an SDR ground station for satellite downlinks, anchored to the 2025 \"Don't Look Up\" GEO cleartext research.", "tags": ["sdr", "satellite"] },
+    { "type": "writeup", "title": "Set up Hack-A-Sat challenges locally", "slug": "blog-hackasat.html", "date": "2026-01-02", "summary": "A step-by-step guide to running the open-sourced Hack-A-Sat qualifier challenges with Docker.", "tags": ["ctf", "space"] },
+    { "type": "project", "title": "World Wide Threats & Actors", "slug": "wwta.html", "date": "2025-12-20", "summary": "A map and searchable database of state-linked APT groups.", "tags": ["threat-intel", "map"] }
+  ],
   "incidents": [
     {
       "id": "apt27-hackers-for-profit-2025",
