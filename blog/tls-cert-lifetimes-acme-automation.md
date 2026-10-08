@@ -1,4 +1,5 @@
 ---
+kind: note
 title: "TLS certificate lifetimes are shrinking. Manual renewal is over."
 date: 2026-03-20
 category: "Research note"

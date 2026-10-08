@@ -1,4 +1,5 @@
 ---
+kind: note
 title: "Welcome to Cyber Footprints"
 date: 2026-03-17
 category: "Site note"

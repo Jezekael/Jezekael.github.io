@@ -388,6 +388,7 @@ img { max-width: 100%; display: block; }
 .pill-project { color: var(--amber); border-color: rgba(255, 184, 108, 0.35); }
 .pill-writeup { color: #7ab8ff; border-color: rgba(122, 184, 255, 0.35); }
 .pill-note { color: var(--muted); }
+.pill-folder { color: var(--text); border-color: rgba(255, 255, 255, 0.25); }
 
 .mini-meta {
   display: flex;

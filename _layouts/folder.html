@@ -2,33 +2,36 @@
 layout: default
 ---
 {%- comment -%}
-  A folder page (index.md). Lists every page and sub-folder directly inside it,
-  newest first. Nothing to maintain: drop a file in the folder and it shows up.
+  A folder page (index.md). Lists every page and sub-folder directly inside it:
+  sub-folders first, then pages newest first. Drop a file in the folder and it shows up.
 {%- endcomment -%}
-{%- assign base = page.url | remove: "index.html" -%}
+{%- assign base = page.url -%}
 {%- assign base_len = base | size -%}
-{%- assign docs = site[page.collection] | sort: "date" | reverse -%}
+{%- assign items = site.pages | where_exp: "p", "p.title" | sort: "date", "last" | reverse -%}
 {%- capture folders -%}{%- endcapture -%}
 {%- capture files -%}{%- endcapture -%}
-{%- for d in docs -%}
-  {%- if d.url == page.url -%}{%- continue -%}{%- endif -%}
+{%- for d in items -%}
+  {%- if d.url == base -%}{%- continue -%}{%- endif -%}
   {%- assign pre = d.url | slice: 0, base_len -%}
   {%- if pre != base -%}{%- continue -%}{%- endif -%}
   {%- assign rest = d.url | slice: base_len, 1000 -%}
   {%- assign parts = rest | split: "/" -%}
-  {%- if parts.size == 1 -%}
+  {%- assign last_char = rest | slice: -1 -%}
+  {%- if parts.size == 1 and last_char == "/" -%}
+    {%- capture folders -%}{{ folders }}{% include card.html doc=d %}{%- endcapture -%}
+  {%- elsif parts.size == 1 -%}
     {%- capture files -%}{{ files }}{% include card.html doc=d %}{%- endcapture -%}
-  {%- elsif parts.size == 2 and parts[1] == "index.html" -%}
-    {%- capture folders -%}{{ folders }}{% include folder-card.html doc=d %}{%- endcapture -%}
   {%- endif -%}
 {%- endfor -%}
+{%- assign listing = folders | append: files | strip -%}
 <main id="main" class="section">
   <div class="container">
-    {%- if page.url != "/blog/index.html" and page.url != "/notes/index.html" and page.url != "/projects/index.html" %}
+    {%- assign depth = page.url | split: "/" | size %}
+    {%- if depth > 2 %}
     {% include breadcrumbs.html %}
     {%- endif %}
     <div class="page-header">
-      <p class="eyebrow">{{ page.eyebrow }}</p>
+      {%- if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
       <h1>{{ page.title }}</h1>
       {%- if page.description %}
       <p class="lead narrow">{{ page.description }}</p>
@@ -40,15 +43,9 @@ layout: default
     <section class="detail-section prose-content">{{ content }}</section>
     {%- endif %}
 
-    {%- assign folders = folders | strip -%}
-    {%- if folders != "" %}
-    <div class="project-folders" style="margin-bottom:2.5rem">{{ folders }}</div>
-    {%- endif %}
-
-    {%- assign files = files | strip -%}
-    {%- if files != "" %}
-    <div class="card-grid card-grid-wide" style="margin-bottom:2.5rem">{{ files }}</div>
-    {%- elsif folders == "" %}
+    {%- if listing != "" %}
+    <div class="card-grid card-grid-wide" style="margin-bottom:2.5rem">{{ listing }}</div>
+    {%- else %}
     <p class="empty-state">Nothing here yet.</p>
     {%- endif %}
 

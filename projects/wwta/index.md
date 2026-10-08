@@ -1,5 +1,4 @@
 ---
-redirect_from: /wwta.html
 layout: wwta
 title: World Wide Threats & Actors
 short_title: WWTA

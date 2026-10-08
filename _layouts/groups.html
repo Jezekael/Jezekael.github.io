@@ -1,22 +1,23 @@
 ---
 layout: default
 ---
-{%- assign groups = site.projects | where: "layout", "group" | sort: "title" -%}
-{%- assign incidents = site.projects | where: "layout", "incident" -%}
+{%- assign groups = site.pages | where: "layout", "group" | sort: "title" -%}
+{%- assign incidents = site.pages | where: "layout", "incident" -%}
 <main id="main" class="section">
   <div class="container">
     {% include breadcrumbs.html %}
     <div class="page-header"><p class="eyebrow">{{ page.eyebrow }}</p><h1>{{ page.title }}</h1><p class="lead narrow">{{ page.description }}</p></div>
     <div class="card-grid card-grid-wide">
       {%- for g in groups %}
-      {%- assign n = incidents | where: "group", g.slug | size %}
+      {%- assign g_id = g.name | remove: ".md" %}
+      {%- assign n = incidents | where: "group", g_id | size %}
       <article class="card">
         <div class="card-header">
           <div>
             <span class="badge">{{ g.country }}</span>
             <h3><a href="{{ g.url | relative_url }}">{{ g.title }}</a></h3>
           </div>
-          <span>{{ n }} incident{% if n > 1 %}s{% endif %}</span>
+          <span>{{ n }} incident{% if n != 1 %}s{% endif %}</span>
         </div>
         <p>{{ g.description }}</p>
         <div class="mini-meta"><span>{{ g.objective }}</span><span>•</span><span>{{ g.status }}</span></div>

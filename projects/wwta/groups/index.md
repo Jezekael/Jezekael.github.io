@@ -1,5 +1,4 @@
 ---
-redirect_from: /groups.html
 layout: groups
 title: Groups
 eyebrow: Threat actor profiles

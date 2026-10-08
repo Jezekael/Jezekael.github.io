@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-{%- assign group = site.projects | where: "layout", "group" | where: "slug", page.group | first -%}
+{%- assign group_file = page.group | append: ".md" -%}
+{%- assign group = site.pages | where: "layout", "group" | where: "name", group_file | first -%}
 <main id="main" class="section">
   <div class="container incident-layout">
     <article>

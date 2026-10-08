@@ -1,7 +1,8 @@
 ---
 layout: default
 ---
-{%- assign related = site.projects | where: "layout", "incident" | where: "group", page.slug | sort: "date" | reverse -%}
+{%- assign group_id = page.name | remove: ".md" -%}
+{%- assign related = site.pages | where: "layout", "incident" | where: "group", group_id | sort: "date" | reverse -%}
 <main id="main" class="section">
   <div class="container incident-layout">
     <article>

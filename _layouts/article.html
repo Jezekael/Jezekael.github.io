@@ -6,7 +6,13 @@ layout: default
     <article>
       {% include breadcrumbs.html %}
       <header class="page-header left">
-        <p class="eyebrow">{{ page.eyebrow }}{% if page.date %} · {{ page.date | date: '%b %-d, %Y' }}{% endif %}</p>
+        {%- case page.kind -%}
+          {%- when "note" -%}{%- assign label = "Note" -%}
+          {%- when "writeup" -%}{%- assign label = "Write-up" -%}
+          {%- when "project" -%}{%- assign label = "Project" -%}
+          {%- else -%}{%- assign label = "Blog" -%}
+        {%- endcase %}
+        <p class="eyebrow">{{ page.eyebrow | default: label }}{% if page.date %} · {{ page.date | date: '%b %-d, %Y' }}{% endif %}</p>
         <h1>{{ page.title }}</h1>
         {%- if page.description %}
         <p class="lead narrow">{{ page.description }}</p>

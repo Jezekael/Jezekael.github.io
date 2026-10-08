@@ -10,12 +10,11 @@ the WWTA map update on their own.
 
 | Folder | URL | What goes there |
 |---|---|---|
-| `_blog/` | `/blog/<file>.html` | Long-form posts |
-| `_notes/` | `/notes/<file>.html` | Short notes |
-| `_projects/` | `/projects/<path>.html` | Projects, any depth of sub-folders |
-| `_projects/writeups/hack_a_sat/<year>/` | | Hack-A-Sat write-ups |
-| `_projects/wwta/incidents/` | | One file per incident (feeds the map) |
-| `_projects/wwta/groups/` | | One file per threat actor |
+| `blog/` | `/blog/<file>.html` | Posts and short notes (add `kind: note` for a "note" badge) |
+| `projects/` | `/projects/<path>.html` | Projects, any depth of sub-folders |
+| `projects/writeups/hack_a_sat/<year>/` | | Hack-A-Sat write-ups |
+| `projects/wwta/incidents/` | | One file per incident (feeds the map) |
+| `projects/wwta/groups/` | | One file per threat actor |
 
 A post looks like this:
 
@@ -29,7 +28,7 @@ tags: [tag1, tag2]
 The post, in normal Markdown.
 ```
 
-Optional front matter: `category`, `short_title` (breadcrumb label), `info` (extra sidebar rows,
+Optional front matter: `kind: note`, `category`, `short_title` (breadcrumb label), `info` (extra sidebar rows,
 e.g. `info: { Status: In progress }`), `files` (downloadable files listed in the sidebar),
 `mermaid: true` (render ```` ```mermaid ```` blocks), `in_feed: false` (hide from the home page).
 
@@ -50,3 +49,12 @@ bundle exec jekyll serve
 ```
 
 Then open http://localhost:4000.
+
+## Repository layout
+
+- `blog/`, `projects/`: the content (Markdown).
+- `_layouts/`, `_includes/`: page templates (header, footer, cards). The leading `_` tells Jekyll
+  these are templates, not pages.
+- `_config.yml`: site settings and per-folder defaults.
+- `index.html`, `about.html`, `resume.html`, `404.html`: standalone pages.
+- `assets/`: CSS, JS, CV PDFs and the generated `data/wwta.json`.

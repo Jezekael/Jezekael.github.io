@@ -3,16 +3,16 @@ layout: null
 sitemap: false
 ---
 {%- comment -%}
-  Generated at build time from _projects/wwta/incidents/*.md and
-  _projects/wwta/groups/*.md. Read by the map, the actor table and the attack log.
+  Generated at build time from projects/wwta/incidents/*.md and
+  projects/wwta/groups/*.md. Read by the map, the actor table and the attack log.
 {%- endcomment -%}
-{%- assign groups = site.projects | where: "layout", "group" | sort: "title" -%}
-{%- assign incidents = site.projects | where: "layout", "incident" | sort: "date" | reverse -%}
+{%- assign groups = site.pages | where: "layout", "group" | sort: "title" -%}
+{%- assign incidents = site.pages | where: "layout", "incident" | sort: "date" | reverse -%}
 {
   "groups": [
     {%- for g in groups %}
     {
-      "id": {{ g.slug | jsonify }},
+      "id": {{ g.name | remove: ".md" | jsonify }},
       "url": {{ g.url | relative_url | jsonify }},
       "name": {{ g.title | jsonify }},
       "country": {{ g.country | jsonify }},
@@ -26,9 +26,10 @@ sitemap: false
   ],
   "incidents": [
     {%- for i in incidents %}
-    {%- assign g = groups | where: "slug", i.group | first %}
+    {%- assign g_file = i.group | append: ".md" %}
+    {%- assign g = groups | where: "name", g_file | first %}
     {
-      "id": {{ i.slug | jsonify }},
+      "id": {{ i.name | remove: ".md" | jsonify }},
       "url": {{ i.url | relative_url | jsonify }},
       "title": {{ i.title | jsonify }},
       "date": {{ i.date | date: "%Y-%m-%d" | jsonify }},

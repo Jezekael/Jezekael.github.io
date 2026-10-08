@@ -20,7 +20,6 @@ kramdown:
     disable: true
 
 plugins:
-  - jekyll-redirect-from
   - jekyll-sitemap
   - jekyll-seo-tag
 
@@ -32,33 +31,21 @@ exclude:
   - "Write up Hack a sat 2020 - AAA & space cadet"
 
 # Content folders ---------------------------------------------------------------
-# Every file in these folders becomes a page. Its URL mirrors its location:
-#   _projects/writeups/hack_a_sat/2020/aaaa.md -> /projects/writeups/hack_a_sat/2020/aaaa.html
-# A folder's index.md becomes the folder page and lists everything inside it.
-collections:
-  blog:
-    output: true
-    permalink: /blog/:path:output_ext
-  notes:
-    output: true
-    permalink: /notes/:path:output_ext
-  projects:
-    output: true
-    permalink: /projects/:path:output_ext
+# Every .md file in blog/ and projects/ becomes a page whose URL mirrors its location:
+#   projects/writeups/hack_a_sat/2020/aaaa.md -> /projects/writeups/hack_a_sat/2020/aaaa.html
+# A folder's index.md (layout: folder) becomes the folder page and lists everything inside it.
 
-# Front-matter defaults, so each file only needs title/date/summary/tags.
+# Front-matter defaults, so each file only needs title/date/description/tags.
 defaults:
   - scope: { path: "" }
     values: { layout: default }
-  - scope: { path: "", type: blog }
-    values: { layout: article, kind: blog, eyebrow: Blog }
-  - scope: { path: "", type: notes }
-    values: { layout: article, kind: note, eyebrow: Note }
-  - scope: { path: "", type: projects }
-    values: { layout: article, kind: project, eyebrow: Project }
-  - scope: { path: "_projects/writeups", type: projects }
-    values: { kind: writeup, eyebrow: Write-up }
-  - scope: { path: "_projects/wwta/incidents", type: projects }
+  - scope: { path: "blog" }
+    values: { layout: article, kind: blog }
+  - scope: { path: "projects" }
+    values: { layout: article, kind: project }
+  - scope: { path: "projects/writeups" }
+    values: { kind: writeup }
+  - scope: { path: "projects/wwta/incidents" }
     values: { layout: incident, in_feed: false }
-  - scope: { path: "_projects/wwta/groups", type: projects }
+  - scope: { path: "projects/wwta/groups" }
     values: { layout: group, in_feed: false }

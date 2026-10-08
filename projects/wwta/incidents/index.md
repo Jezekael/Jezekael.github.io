@@ -1,5 +1,4 @@
 ---
-redirect_from: /attacks.html
 layout: incidents
 title: Attack log
 eyebrow: Incident archive

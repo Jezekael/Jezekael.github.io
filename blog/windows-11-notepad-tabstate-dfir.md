@@ -1,4 +1,5 @@
 ---
+kind: note
 title: "Windows 11 Notepad TabState artifacts are worth collecting"
 date: 2026-03-20
 category: "DFIR note"

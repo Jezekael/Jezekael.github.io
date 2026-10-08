@@ -2,7 +2,7 @@
 layout: default
 scripts: [terminal.js]
 ---
-{%- assign n_incidents = site.projects | where: "layout", "incident" | size -%}
+{%- assign n_incidents = site.pages | where: "layout", "incident" | size -%}
 <main id="main">
   <section class="term-hero" aria-label="Introduction terminal">
     <div class="term-window">
@@ -26,7 +26,7 @@ scripts: [terminal.js]
         <a class="text-link" href="{{ '/blog/' | relative_url }}">See the blog →</a>
       </div>
       <div id="latest" class="card-grid">
-        {%- assign feed = site.documents | where_exp: "d", "d.in_feed != false" | where_exp: "d", "d.layout != 'folder'" | sort: "date" | reverse -%}
+        {%- assign feed = site.pages | where_exp: "d", "d.date" | where_exp: "d", "d.in_feed != false" | where_exp: "d", "d.layout != 'folder'" | sort: "date" | reverse -%}
         {%- for d in feed limit: 6 %}
         {% include card.html doc=d %}
         {%- endfor %}

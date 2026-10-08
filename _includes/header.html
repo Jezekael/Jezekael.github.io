@@ -3,7 +3,7 @@
   <div class="container nav-shell">
     <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-mark">JB</span><span>Jezekael Brunon</span></a>
     <nav class="main-nav" aria-label="Main navigation">
-      {%- assign nav = "Home|/,Blog|/blog/,Notes|/notes/,Projects|/projects/,Resume|/resume.html" | split: "," -%}
+      {%- assign nav = "Home|/,Blog|/blog/,Projects|/projects/,Resume|/resume.html" | split: "," -%}
       {%- for item in nav -%}
         {%- assign parts = item | split: "|" -%}
         {%- assign href = parts[1] -%}
