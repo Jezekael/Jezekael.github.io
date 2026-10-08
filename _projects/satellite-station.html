@@ -1,0 +1,43 @@
+---
+title: Satellite eavesdropper station
+short_title: Satellite station
+date: 2026-01-15
+category: RF / SDR
+description: "Building an SDR ground station for satellite downlinks, anchored to the 2025 \"Don't Look Up\" GEO cleartext research."
+tags: [sdr, rf, satellite, geo]
+info: { Status: In progress }
+link_text: Read project →
+redirect_from: /blog-satellite.html
+---
+<blockquote>This post is a working template. Hardware, configuration and captured results are my own and will be filled in as the station comes together. <!-- TODO(jezekael): replace placeholder sections with your real build. --></blockquote>
+
+<h2>1. Goal</h2>
+<p><!-- TODO(jezekael): state your actual goal. -->Decide what the station is meant to receive: weather imagery (LRPT), L-band downlinks, or a passive GEO IP study. <strong>TODO:</strong> state the concrete objective for this build.</p>
+
+<h2>2. Background: why now</h2>
+<p>The strongest contemporary anchor is the 2025 study <strong>"Don't Look Up: There Are Sensitive Internal Links in the Clear on GEO Satellites"</strong> (UC San Diego + University of Maryland), presented at <strong>ACM CCS 2025</strong> and awarded a Distinguished Paper. Using a roughly $800 consumer satellite dish, a motor and a consumer TV-tuner card, scanning from a rooftop over about three years, the researchers observed 39 GEO satellites across 25 distinct longitudes with 411 transponders, and found that <strong>about 50% of GEO links contained cleartext IP traffic</strong>: cellular backhaul (calls, SMS, IMSI), in-flight Wi-Fi, VoIP, corporate and retail internal networks, critical-infrastructure SCADA, and some military and government traffic. The authors stress the work was <strong>fully passive</strong> and legally reviewed.</p>
+<p>The hobbyist landscape also shifted in 2025: NOAA decommissioned its last APT weather birds, NOAA-18 (June 6, 2025), NOAA-19 (August 13, 2025) and NOAA-15 (August 19, 2025), ending the classic 137 MHz NOAA APT reception path and pushing enthusiasts toward Meteor-M2 LRPT, GOES, and the GEO work above.</p>
+
+<h2>3. Hardware</h2>
+<ul>
+  <li><strong>Antenna:</strong> <!-- TODO -->TODO: e.g. a QFH / turnstile for 137 MHz LRPT, or an offset dish + LNB for Ku-band GEO.</li>
+  <li><strong>SDR:</strong> TODO: RTL-SDR, Airspy, etc.</li>
+  <li><strong>Front-end:</strong> TODO: LNA and filters.</li>
+  <li><strong>Positioning:</strong> TODO: rotator / motor and mount.</li>
+</ul>
+
+<h2>4. Software stack</h2>
+<p>Candidates: <strong>SatDump</strong>, <strong>GNU Radio</strong>, <strong>gr-satellites</strong>, and for the GEO IP-study path the open-source <strong>"dontlookup"</strong> DVB-S2(X) IP packet extractor. <strong>TODO:</strong> record which you used and the configuration.</p>
+
+<h2>5. Legal &amp; ethical considerations</h2>
+<p>Reception rules vary by country, and passively receiving a signal is treated very differently from decoding or using private traffic. Follow responsible-disclosure norms if you ever observe unencrypted sensitive data, and <strong>do not act on intercepted content</strong>. The "Don't Look Up" authors foreground exactly this framing and reference NSA VSAT guidance. <strong>TODO:</strong> document your own jurisdiction's rules before transmitting or decoding anything.</p>
+
+<h2>6. Results</h2>
+<p><!-- TODO(jezekael): captures, decoded images/telemetry, screenshots, lessons learned. -->TODO: captures, decoded imagery or telemetry, screenshots, and lessons learned.</p>
+
+<h2>7. References</h2>
+<ul class="source-list">
+  <li><a href="https://satcom.sysnet.ucsd.edu/">UC San Diego: SATCOM Security project (paper, code, FAQ)</a></li>
+  <li><a href="https://cseweb.ucsd.edu//~schulman/">Aaron Schulman, project co-lead</a></li>
+  <li><a href="https://www.satdump.org/">SatDump</a> · <a href="https://gr-satellites.readthedocs.io/">gr-satellites</a></li>
+</ul>

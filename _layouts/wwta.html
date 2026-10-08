@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<main id="main" class="section">
+  <div class="container wwta-layout">
+    {% include breadcrumbs.html %}
+    <div class="page-header">
+      <p class="eyebrow">Research</p>
+      <h1>World Wide Threats &amp; Actors</h1>
+      <p class="lead narrow">Operations attributed to state-linked groups, coloured by <em>suspected</em> sponsor. Attribution is drawn from public government advisories and vendor reporting; treat all sponsorship as suspected, not proven.</p>
+    </div>
+
+    <section class="detail-section">
+      <h2>By suspected sponsor</h2>
+      <div id="wwta-stats" class="country-stats"></div>
+    </section>
+
+    <section class="detail-section">
+      <h2>Operations map</h2>
+      <div id="wwta-map" style="min-height:520px;border-radius:var(--radius);overflow:hidden" aria-label="Map of operations coloured by suspected sponsor"></div>
+    </section>
+
+    <section class="detail-section">
+      <div class="section-heading compact">
+        <div><h2 style="margin:0">Actor database</h2></div>
+        <div class="filters-inline">
+          <label><span class="label-text">Search</span><input id="wwta-search" type="search" placeholder="Name, alias, sponsor, sector"></label>
+          <label><span class="label-text">Sponsor</span><select id="wwta-sponsor"><option value="all">All sponsors</option></select></label>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Group</th><th>Aliases</th><th>Suspected sponsor</th><th>Objective</th><th>Focus areas</th><th>Incidents</th></tr>
+          </thead>
+          <tbody id="wwta-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <h3>Attribution &amp; sources</h3>
+      <p class="small-muted">Actor profiles and incident attribution here are summarized from public U.S./UK/EU government advisories (CISA, FBI, NSA, NCSC, DOJ), EU Council declarations, and named vendor investigations (Microsoft, Mandiant). Browse the full <a class="text-link" href="{{ '/projects/wwta/incidents/' | relative_url }}">attack log</a> and <a class="text-link" href="{{ '/projects/wwta/groups/' | relative_url }}">group profiles</a>.</p>
+    </section>
+  </div>
+</main>

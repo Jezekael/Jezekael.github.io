@@ -1,0 +1,8 @@
+{%- assign d = include.doc -%}
+{%- assign trail = d.url | remove: "index.html" | split: "/" | pop | join: "/" | append: "/" | replace_first: "/", "~/" -%}
+<a class="folder-card" href="{{ d.url | remove: 'index.html' | relative_url }}">
+  <span class="folder-icon">{{ trail }}</span>
+  <h2>{{ d.title }}</h2>
+  <p class="out">{{ d.description | strip_html | truncate: 220 }}</p>
+  <span class="text-link">{{ d.link_text | default: "Open folder →" }}</span>
+</a>

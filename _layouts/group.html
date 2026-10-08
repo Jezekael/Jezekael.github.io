@@ -1,0 +1,56 @@
+---
+layout: default
+---
+{%- assign related = site.projects | where: "layout", "incident" | where: "group", page.slug | sort: "date" | reverse -%}
+<main id="main" class="section">
+  <div class="container incident-layout">
+    <article>
+      {% include breadcrumbs.html %}
+      <header class="page-header left">
+        <p class="eyebrow">{{ page.country }}</p>
+        <h1>{{ page.title }}</h1>
+        <p class="lead narrow">{{ page.description }}</p>
+      </header>
+      <section class="detail-section prose-content">
+        <h2>Overview</h2>
+{{ content }}
+      </section>
+      <section class="detail-section two-column-list">
+        <div><h2>Aliases</h2><ul class="tag-list">{% for a in page.aliases %}<li>{{ a }}</li>{% endfor %}</ul></div>
+        <div><h2>Focus areas</h2><ul class="bullet-list">{% for f in page.focus_areas %}<li>{{ f }}</li>{% endfor %}</ul></div>
+      </section>
+      <section class="detail-section">
+        <h2>Known techniques</h2>
+        <ul class="tag-list">{% for t in page.techniques %}<li>{{ t }}</li>{% endfor %}</ul>
+      </section>
+      <section class="detail-section">
+        <h2>Related incidents</h2>
+        <div class="card-stack">
+          {%- for item in related %}
+          <article>
+            <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+            <p>{{ item.description }}</p>
+            <div class="mini-meta"><span>{{ item.date | date: '%b %-d, %Y' }}</span><span>•</span><span>{{ item.target }}</span></div>
+          </article>
+          {%- else %}
+          <p class="empty-state">No linked incidents yet.</p>
+          {%- endfor %}
+        </div>
+      </section>
+    </article>
+    <aside class="detail-sidebar">
+      <div class="meta-card">
+        <h3>Profile</h3>
+        <dl class="meta-list">
+          <div><dt>Associated state</dt><dd>{{ page.country }}</dd></div>
+          <div><dt>Primary objective</dt><dd>{{ page.objective }}</dd></div>
+          <div><dt>Status</dt><dd>{{ page.status }}</dd></div>
+        </dl>
+      </div>
+      <div class="meta-card">
+        <h3>Sources</h3>
+        <ul class="source-list">{% for s in page.sources %}<li><a href="{{ s.url }}" target="_blank" rel="noreferrer">{{ s.label }}</a></li>{% endfor %}</ul>
+      </div>
+    </aside>
+  </div>
+</main>

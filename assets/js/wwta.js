@@ -4,7 +4,7 @@
      1. per-sponsor-country attack counts,
      2. a Leaflet marker map coloured by suspected sponsor,
      3. a searchable, sortable actor "database" table.
-   Ships no extra heavy geo asset; see STACK_DECISION.md for the choropleth note. */
+   Ships no extra heavy geo asset. */
 (async function initWwta() {
   try {
     const { incidents, groups } = await loadDataset();
@@ -56,7 +56,7 @@
           weight: 2,
         })
           .addTo(map)
-          .bindPopup(`<strong>${escapeHtml(inc.title)}</strong><br>${escapeHtml(inc.group_name)} · ${escapeHtml(country)}<br><a href="attack.html?id=${encodeURIComponent(inc.id)}">Open case file</a>`);
+          .bindPopup(`<strong>${escapeHtml(inc.title)}</strong><br>${escapeHtml(inc.group_name)} · ${escapeHtml(country)}<br><a href="${escapeHtml(inc.url)}">Open case file</a>`);
       });
     }
 
@@ -91,7 +91,7 @@
       tbody.innerHTML = filtered.length
         ? filtered.map((r) => `
           <tr>
-            <td><a class="text-link" href="group.html?id=${encodeURIComponent(r.id)}">${escapeHtml(r.name)}</a></td>
+            <td><a class="text-link" href="${escapeHtml(r.url)}">${escapeHtml(r.name)}</a></td>
             <td>${(r.aliases || []).map(escapeHtml).join(', ') || 'n/a'}</td>
             <td><span style="color:${colorOf[r.country] || '#8a8a8a'}">${escapeHtml(r.country || 'Unknown')}</span></td>
             <td>${escapeHtml(r.objective || 'n/a')}</td>

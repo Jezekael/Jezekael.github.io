@@ -1,0 +1,56 @@
+---
+layout: default
+---
+{%- assign group = site.projects | where: "layout", "group" | where: "slug", page.group | first -%}
+<main id="main" class="section">
+  <div class="container incident-layout">
+    <article>
+      {% include breadcrumbs.html %}
+      <header class="page-header left">
+        <p class="eyebrow">{{ page.region }}</p>
+        <h1>{{ page.title }}</h1>
+        <p class="lead narrow">{{ page.description }}</p>
+      </header>
+      <section class="detail-section prose-content">
+        <h2>Executive summary</h2>
+{{ content }}
+      </section>
+      {%- if page.timeline.size > 0 %}
+      <section class="detail-section">
+        <div class="split-heading"><h2>Timeline</h2><a class="text-link" href="{{ '/projects/wwta/incidents/' | relative_url }}">Back to archive</a></div>
+        <div class="timeline">
+          {%- for item in page.timeline %}
+          <article class="timeline-item">
+            <div class="timeline-date">{{ item.date }}</div>
+            <div class="timeline-content"><h3>{{ item.title }}</h3><p>{{ item.description }}</p></div>
+          </article>
+          {%- endfor %}
+        </div>
+      </section>
+      {%- endif %}
+      <section class="detail-section two-column-list">
+        <div><h2>Techniques observed</h2><ul class="tag-list">{% for t in page.techniques %}<li>{{ t }}</li>{% endfor %}</ul></div>
+        <div><h2>Effects and impact</h2><ul class="bullet-list">{% for e in page.effects %}<li>{{ e }}</li>{% endfor %}</ul></div>
+      </section>
+      <section class="detail-section">
+        <h2>Sources</h2>
+        <ul class="source-list">{% for s in page.sources %}<li><a href="{{ s.url }}" target="_blank" rel="noreferrer">{{ s.label }}</a></li>{% endfor %}</ul>
+      </section>
+    </article>
+    <aside class="detail-sidebar">
+      <div class="meta-card">
+        <h3>Case file</h3>
+        <dl class="meta-list">
+          <div><dt>Threat actor</dt><dd>{% if group %}<a class="text-link" href="{{ group.url | relative_url }}">{{ group.title }}</a>{% else %}{{ page.group }}{% endif %}</dd></div>
+          <div><dt>Target</dt><dd>{{ page.target }}</dd></div>
+          <div><dt>Date</dt><dd>{{ page.date | date: '%b %-d, %Y' }}</dd></div>
+          <div><dt>Region</dt><dd>{{ page.region }}</dd></div>
+          <div><dt>Attribution</dt><dd>{{ page.attribution }}</dd></div>
+        </dl>
+      </div>
+      {%- if page.tags.size > 0 %}
+      <div class="meta-card"><h3>Tags</h3><ul class="tag-list">{% for t in page.tags %}<li>{{ t }}</li>{% endfor %}</ul></div>
+      {%- endif %}
+    </aside>
+  </div>
+</main>

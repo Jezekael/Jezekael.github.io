@@ -1,0 +1,17 @@
+{%- comment -%} Home / Folder / Sub-folder / Page — built from the page URL. {%- endcomment -%}
+{%- assign segs = page.url | split: "/" -%}
+{%- assign last_seg = segs | last -%}
+{%- assign skip_at = 0 -%}
+{%- if last_seg == "index.html" -%}{%- assign skip_at = segs.size | minus: 1 -%}{%- endif -%}
+{%- assign acc = "" -%}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  {%- for s in segs -%}
+    {%- if s == "" or forloop.last or forloop.index == skip_at -%}{%- continue -%}{%- endif -%}
+    {%- assign acc = acc | append: "/" | append: s -%}
+    {%- assign idx = acc | append: "/index.html" -%}
+    {%- assign folder = site.documents | where: "url", idx | first -%}
+    <span>/</span><a href="{{ acc | append: '/' | relative_url }}">{{ folder.short_title | default: folder.title | default: s }}</a>
+  {%- endfor -%}
+  <span>/</span><span>{{ page.short_title | default: page.title }}</span>
+</nav>

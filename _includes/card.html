@@ -1,0 +1,10 @@
+{%- assign d = include.doc -%}
+<a class="card" href="{{ d.url | relative_url }}">
+  <span class="pill pill-{{ d.kind | default: 'note' }}">{{ d.kind | default: 'note' }}</span>
+  <h3>{{ d.title }}</h3>
+  <p class="out">{{ d.description | strip_html | truncate: 220 }}</p>
+  <div class="mini-meta">
+    <time datetime="{{ d.date | date: '%Y-%m-%d' }}">{{ d.date | date: '%b %-d, %Y' }}</time>
+    {%- for t in d.tags limit: 3 %}<span>#{{ t }}</span>{% endfor %}
+  </div>
+</a>

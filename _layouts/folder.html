@@ -1,0 +1,59 @@
+---
+layout: default
+---
+{%- comment -%}
+  A folder page (index.md). Lists every page and sub-folder directly inside it,
+  newest first. Nothing to maintain: drop a file in the folder and it shows up.
+{%- endcomment -%}
+{%- assign base = page.url | remove: "index.html" -%}
+{%- assign base_len = base | size -%}
+{%- assign docs = site[page.collection] | sort: "date" | reverse -%}
+{%- capture folders -%}{%- endcapture -%}
+{%- capture files -%}{%- endcapture -%}
+{%- for d in docs -%}
+  {%- if d.url == page.url -%}{%- continue -%}{%- endif -%}
+  {%- assign pre = d.url | slice: 0, base_len -%}
+  {%- if pre != base -%}{%- continue -%}{%- endif -%}
+  {%- assign rest = d.url | slice: base_len, 1000 -%}
+  {%- assign parts = rest | split: "/" -%}
+  {%- if parts.size == 1 -%}
+    {%- capture files -%}{{ files }}{% include card.html doc=d %}{%- endcapture -%}
+  {%- elsif parts.size == 2 and parts[1] == "index.html" -%}
+    {%- capture folders -%}{{ folders }}{% include folder-card.html doc=d %}{%- endcapture -%}
+  {%- endif -%}
+{%- endfor -%}
+<main id="main" class="section">
+  <div class="container">
+    {%- if page.url != "/blog/index.html" and page.url != "/notes/index.html" and page.url != "/projects/index.html" %}
+    {% include breadcrumbs.html %}
+    {%- endif %}
+    <div class="page-header">
+      <p class="eyebrow">{{ page.eyebrow }}</p>
+      <h1>{{ page.title }}</h1>
+      {%- if page.description %}
+      <p class="lead narrow">{{ page.description }}</p>
+      {%- endif %}
+    </div>
+
+    {%- assign body = content | strip -%}
+    {%- if page.content_position == "top" and body != "" %}
+    <section class="detail-section prose-content">{{ content }}</section>
+    {%- endif %}
+
+    {%- assign folders = folders | strip -%}
+    {%- if folders != "" %}
+    <div class="project-folders" style="margin-bottom:2.5rem">{{ folders }}</div>
+    {%- endif %}
+
+    {%- assign files = files | strip -%}
+    {%- if files != "" %}
+    <div class="card-grid card-grid-wide" style="margin-bottom:2.5rem">{{ files }}</div>
+    {%- elsif folders == "" %}
+    <p class="empty-state">Nothing here yet.</p>
+    {%- endif %}
+
+    {%- if page.content_position != "top" and body != "" %}
+    <section class="detail-section prose-content">{{ content }}</section>
+    {%- endif %}
+  </div>
+</main>

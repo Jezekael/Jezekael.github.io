@@ -1,12 +1,11 @@
 /* Terminal typewriter hero.
    Data-driven, honours prefers-reduced-motion, and pulls the live incident
-   count from the embedded dataset when available. */
+   count from the data-incidents attribute set at build time. */
 (function initTerminal() {
   const el = document.getElementById('term');
   if (!el) return;
 
-  const embedded = window.CYBER_FOOTPRINTS_DATA || {};
-  const exploitCount = Array.isArray(embedded.incidents) ? embedded.incidents.length : 14;
+  const exploitCount = el.dataset.incidents || 14;
 
   const lines = [
     { type: 'prompt', cmd: 'whoami' },

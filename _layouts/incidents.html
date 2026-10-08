@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<main id="main" class="section">
+  <div class="container">
+    {% include breadcrumbs.html %}
+    <div class="page-header"><p class="eyebrow">{{ page.eyebrow }}</p><h1>{{ page.title }}</h1><p class="lead narrow">{{ page.description }}</p></div>
+    <div class="toolbar">
+      <label><span class="label-text">Search</span><input id="attack-search" type="search" placeholder="Search target, campaign, technique, or actor"></label>
+      <label><span class="label-text">Group</span><select id="attack-group-filter"><option value="all">All groups</option></select></label>
+      <label><span class="label-text">Sort</span><select id="attack-sort"><option value="date-desc">Newest first</option><option value="date-asc">Oldest first</option><option value="name-asc">Name A–Z</option></select></label>
+    </div>
+    <div id="attack-list" class="card-grid card-grid-wide"></div>
+  </div>
+</main>

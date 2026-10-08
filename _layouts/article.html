@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<main id="main" class="section">
+  <div class="container incident-layout">
+    <article>
+      {% include breadcrumbs.html %}
+      <header class="page-header left">
+        <p class="eyebrow">{{ page.eyebrow }}{% if page.date %} · {{ page.date | date: '%b %-d, %Y' }}{% endif %}</p>
+        <h1>{{ page.title }}</h1>
+        {%- if page.description %}
+        <p class="lead narrow">{{ page.description }}</p>
+        {%- endif %}
+      </header>
+
+      <section class="detail-section prose-content">
+{{ content }}
+      </section>
+    </article>
+
+    <aside class="detail-sidebar">
+      <div class="meta-card">
+        <h3>{% if page.kind == "project" %}Project{% else %}Post{% endif %} info</h3>
+        <dl class="meta-list">
+          {%- if page.date %}<div><dt>Published</dt><dd>{{ page.date | date: '%b %-d, %Y' }}</dd></div>{% endif %}
+          {%- if page.category %}<div><dt>Category</dt><dd>{{ page.category }}</dd></div>{% endif %}
+          {%- for row in page.info %}<div><dt>{{ row[0] }}</dt><dd>{{ row[1] }}</dd></div>{% endfor %}
+        </dl>
+      </div>
+      {%- if page.tags.size > 0 %}
+      <div class="meta-card">
+        <h3>Tags</h3>
+        <ul class="tag-list">{% for t in page.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+      </div>
+      {%- endif %}
+      {%- if page.files.size > 0 %}
+      <div class="meta-card">
+        <h3>Files</h3>
+        <ul class="source-list">{% for f in page.files %}<li><a href="{{ f }}">{{ f | split: '/' | last }}</a></li>{% endfor %}</ul>
+      </div>
+      {%- endif %}
+    </aside>
+  </div>
+</main>

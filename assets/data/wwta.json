@@ -1,0 +1,47 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%}
+  Generated at build time from _projects/wwta/incidents/*.md and
+  _projects/wwta/groups/*.md. Read by the map, the actor table and the attack log.
+{%- endcomment -%}
+{%- assign groups = site.projects | where: "layout", "group" | sort: "title" -%}
+{%- assign incidents = site.projects | where: "layout", "incident" | sort: "date" | reverse -%}
+{
+  "groups": [
+    {%- for g in groups %}
+    {
+      "id": {{ g.slug | jsonify }},
+      "url": {{ g.url | relative_url | jsonify }},
+      "name": {{ g.title | jsonify }},
+      "country": {{ g.country | jsonify }},
+      "objective": {{ g.objective | jsonify }},
+      "status": {{ g.status | jsonify }},
+      "summary": {{ g.description | jsonify }},
+      "aliases": {{ g.aliases | jsonify }},
+      "focus_areas": {{ g.focus_areas | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ],
+  "incidents": [
+    {%- for i in incidents %}
+    {%- assign g = groups | where: "slug", i.group | first %}
+    {
+      "id": {{ i.slug | jsonify }},
+      "url": {{ i.url | relative_url | jsonify }},
+      "title": {{ i.title | jsonify }},
+      "date": {{ i.date | date: "%Y-%m-%d" | jsonify }},
+      "group": {{ i.group | jsonify }},
+      "group_name": {{ g.title | default: i.group | jsonify }},
+      "region": {{ i.region | jsonify }},
+      "target": {{ i.target | jsonify }},
+      "summary": {{ i.description | jsonify }},
+      "description": {{ i.content | strip_html | strip | jsonify }},
+      "coordinates": {{ i.coordinates | jsonify }},
+      "techniques": {{ i.techniques | jsonify }},
+      "tags": {{ i.tags | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+}

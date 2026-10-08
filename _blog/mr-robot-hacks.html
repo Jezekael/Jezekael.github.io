@@ -1,0 +1,53 @@
+---
+title: "How realistic are the hacks in Mr. Robot?"
+short_title: Mr. Robot hacks
+date: 2026-02-01
+category: Analysis
+description: "A hack-by-hack feasibility catalogue, the real tools behind each scene, and a realism rating for every one."
+tags: [mr-robot, analysis, tradecraft, social-engineering]
+info: { Reading: "~8 min" }
+redirect_from: /blog-mr-robot.html
+---
+<p><em>Mr. Robot</em> is widely called the most technically accurate hacking show ever made, largely because writer and technology producer <strong>Kor Adana</strong>, a former corporate network-security analyst, builds each hack with a team of advisers and discards anything that is not realistic. This post catalogues the show's notable hacks, the real tools behind them, and rates each on a feasibility scale. It complements, rather than copies, existing per-scene breakdowns such as William Thomas's <em>Mr. Robot Hacks Database</em> and Adana's own interviews; the consolidated catalogue with ratings is the original contribution here.</p>
+
+<h2>Feasibility scale</h2>
+<div class="legend">
+  <span>🟢 Realistic: works today with off-the-shelf kit</span>
+  <span>🟡 Plausible but dramatized: real technique, compressed or idealized</span>
+  <span>🔴 Hollywood: fun, not real</span>
+</div>
+
+<div class="table-wrap">
+  <table class="feasibility">
+    <thead>
+      <tr><th>#</th><th>Hack (episode)</th><th>Technique &amp; real tools</th><th>Rating</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Tor exit-node monitoring</strong> (S1E1)</td><td>Running and monitoring Tor exit nodes can expose unencrypted exit traffic, but will not deanonymize hidden services at will; Elliot's framing is directionally real.</td><td class="rating">🟡</td></tr>
+      <tr><td>2</td><td><strong>Password cracking</strong> of therapist / Tyrell (S1)</td><td>Dictionary and rule attacks seeded with personal OSINT; the real-world equivalent is <strong>John the Ripper</strong> or hashcat with a custom wordlist (the on-screen tool is fictional).</td><td class="rating">🟢</td></tr>
+      <tr><td>3</td><td><strong>DDoS on Allsafe/E Corp as cover</strong> (S1E1)</td><td>Volumetric DDoS as a distraction while a rootkit is planted, a standard blue-team reality.</td><td class="rating">🟢</td></tr>
+      <tr><td>4</td><td><strong>CD / RAT drop by the Dark Army</strong> (S1)</td><td>Malicious media delivering a Remote Access Trojan (webcam, keylogger); steganography via DeepSound on audio CDs.</td><td class="rating">🟢</td></tr>
+      <tr><td>5</td><td><strong>RFID badge cloning</strong> at Steel Mountain (S1E5)</td><td>Proximity badge cloning with a concealed long-range reader (e.g. a Proxmark-class device), the minivan and hotel entry are the dramatized bits.</td><td class="rating">🟢</td></tr>
+      <tr><td>6</td><td><strong>Social engineering + fake Wikipedia identity</strong> (S1E5)</td><td>Pretexting backed by a planted web footprint; the single most reliable "hack" in the show.</td><td class="rating">🟢</td></tr>
+      <tr><td>7</td><td><strong>Raspberry Pi on Steel Mountain HVAC → BACnet</strong> (S1E5–S2)</td><td>A Pi with a cellular modem behind a thermostat bridges to the building-management system over <strong>BACnet</strong>, which frequently runs unauthenticated, to raise the temperature and cook LTO backup tapes. The vector is real; the melt-the-tapes timeline is compressed.</td><td class="rating">🟡</td></tr>
+      <tr><td>8</td><td><strong>Femtocell drop at FBI/E Corp</strong> (S2)</td><td>A reflashed <strong>femtocell</strong> acts as a rogue base station / IMSI-catcher to intercept cellular traffic and pivot into the network; Angela plants it and runs a prepared script.</td><td class="rating">🟡</td></tr>
+      <tr><td>9</td><td><strong>USB drop in prison parking lot</strong> (S1E6)</td><td>Baiting with malware-laden USB sticks; an officer inserts one. Antivirus catching it on-screen is a realistic outcome.</td><td class="rating">🟢</td></tr>
+      <tr><td>10</td><td><strong>Bluetooth keyboard spoofing of a police car</strong> (S1E6)</td><td>Brute-forcing / spoofing a Bluetooth link to a squad-car laptop to push malware into the prison system, plausible in principle, idealized in speed and range.</td><td class="rating">🟡</td></tr>
+      <tr><td>11</td><td><strong>Rootkit / "control the whole network"</strong> (S1)</td><td>Persistence via a rootkit after initial access is real; the total, instant control is dramatized.</td><td class="rating">🟡</td></tr>
+      <tr><td>12</td><td><strong>"Hacking the FBI unclassified network"</strong> (S2)</td><td>Built on the femtocell plus a realistic discussion of FBI unclassified-network segmentation; plausible as portrayed, not a magic button.</td><td class="rating">🟡</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Tooling appendix</h2>
+<p>The show's realism toolkit maps to the same stack pentesters actually use: <strong>Kali Linux</strong>, <strong>Metasploit</strong>, the <strong>Social-Engineer Toolkit (SET)</strong>, <strong>John the Ripper</strong> / hashcat, <strong>Nmap</strong>, <code>wget</code>/<code>curl</code>, <strong>Proxmark-class</strong> RFID tools, SDR and femtocell gear, and custom Python.</p>
+<blockquote>The show's real lesson is that the reliable attack vector is almost always a person, not a zero-day.</blockquote>
+
+<h2>Sources &amp; further reading</h2>
+<ul class="source-list">
+  <li><a href="https://joasantonio.com/mrrobot.html">Mr. Robot Hacking Wiki: complete technical reference</a></li>
+  <li><a href="https://www.rollingstone.com/culture/culture-news/mr-robot-four-of-the-shows-best-hacks-explained-180924/">Rolling Stone: Four of the show's best hacks, explained (Kor Adana interview)</a></li>
+  <li><a href="https://blog.avast.com/2015/12/29/mr-robot-was-our-favorite-show-of-2015/">Avast: Mr. Robot was our favorite show of 2015</a></li>
+  <li><a href="https://hackers-arise.com/category/mr-robot/">Hackers-Arise: Mr. Robot hacks series</a></li>
+</ul>
+<p class="small-muted">All external work is paraphrased and credited; no copyrighted text is reproduced. Ratings are the author's assessment.</p>
