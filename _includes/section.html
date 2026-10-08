@@ -1,0 +1,8 @@
+{%- comment -%}
+  Sets `section` (badge name) and `section_page` (its folder page) from the first
+  sub-folder of include.url: /projects/writeups/hack_a_sat/2020/aaaa.html -> "writeups".
+{%- endcomment -%}
+{%- assign url_segs = include.url | split: "/" -%}
+{%- if url_segs.size >= 4 -%}{%- assign section = url_segs[2] -%}{%- else -%}{%- assign section = url_segs[1] -%}{%- endif -%}
+{%- assign section_url = "/" | append: url_segs[1] | append: "/" | append: section | append: "/" -%}
+{%- assign section_page = site.pages | where: "url", section_url | first -%}

@@ -1,6 +1,7 @@
 ---
 layout: folder
+flat: true
 title: Blog
 eyebrow: Writing
-description: Long-form posts on offensive security, radio, satellites and capture-the-flag.
+description: Posts and short notes on offensive security, radio, satellites and capture-the-flag.
 ---

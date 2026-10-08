@@ -28,24 +28,22 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
-  - "Write up Hack a sat 2020 - AAA & space cadet"
 
 # Content folders ---------------------------------------------------------------
 # Every .md file in blog/ and projects/ becomes a page whose URL mirrors its location:
 #   projects/writeups/hack_a_sat/2020/aaaa.md -> /projects/writeups/hack_a_sat/2020/aaaa.html
-# A folder's index.md (layout: folder) becomes the folder page and lists everything inside it.
+# The first sub-folder (blog/posts, blog/notes, projects/research, projects/writeups...)
+# is the badge shown on the item's card. A folder's index.md (layout: folder) lists its contents.
 
 # Front-matter defaults, so each file only needs title/date/description/tags.
 defaults:
   - scope: { path: "" }
     values: { layout: default }
   - scope: { path: "blog" }
-    values: { layout: article, kind: blog }
+    values: { layout: article }
   - scope: { path: "projects" }
-    values: { layout: article, kind: project }
-  - scope: { path: "projects/writeups" }
-    values: { kind: writeup }
-  - scope: { path: "projects/wwta/incidents" }
+    values: { layout: article }
+  - scope: { path: "projects/research/wwta/incidents" }
     values: { layout: incident, in_feed: false }
-  - scope: { path: "projects/wwta/groups" }
+  - scope: { path: "projects/research/wwta/groups" }
     values: { layout: group, in_feed: false }

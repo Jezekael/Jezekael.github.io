@@ -3,8 +3,8 @@ layout: null
 sitemap: false
 ---
 {%- comment -%}
-  Generated at build time from projects/wwta/incidents/*.md and
-  projects/wwta/groups/*.md. Read by the map, the actor table and the attack log.
+  Generated at build time from projects/research/wwta/incidents/*.md and
+  projects/research/wwta/groups/*.md. Read by the map, the actor table and the attack log.
 {%- endcomment -%}
 {%- assign groups = site.pages | where: "layout", "group" | sort: "title" -%}
 {%- assign incidents = site.pages | where: "layout", "incident" | sort: "date" | reverse -%}

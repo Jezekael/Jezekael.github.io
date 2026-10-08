@@ -6,13 +6,8 @@ layout: default
     <article>
       {% include breadcrumbs.html %}
       <header class="page-header left">
-        {%- case page.kind -%}
-          {%- when "note" -%}{%- assign label = "Note" -%}
-          {%- when "writeup" -%}{%- assign label = "Write-up" -%}
-          {%- when "project" -%}{%- assign label = "Project" -%}
-          {%- else -%}{%- assign label = "Blog" -%}
-        {%- endcase %}
-        <p class="eyebrow">{{ page.eyebrow | default: label }}{% if page.date %} · {{ page.date | date: '%b %-d, %Y' }}{% endif %}</p>
+        {%- include section.html url=page.url %}
+        <p class="eyebrow">{{ page.eyebrow | default: section_page.title | default: section }}{% if page.date %} · {{ page.date | date: '%b %-d, %Y' }}{% endif %}</p>
         <h1>{{ page.title }}</h1>
         {%- if page.description %}
         <p class="lead narrow">{{ page.description }}</p>
@@ -26,7 +21,7 @@ layout: default
 
     <aside class="detail-sidebar">
       <div class="meta-card">
-        <h3>{% if page.kind == "project" %}Project{% else %}Post{% endif %} info</h3>
+        <h3>Info</h3>
         <dl class="meta-list">
           {%- if page.date %}<div><dt>Published</dt><dd>{{ page.date | date: '%b %-d, %Y' }}</dd></div>{% endif %}
           {%- if page.category %}<div><dt>Category</dt><dd>{{ page.category }}</dd></div>{% endif %}

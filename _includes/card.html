@@ -1,17 +1,14 @@
-{%- comment -%} One card for everything: posts, notes, projects, write-ups and folders. {%- endcomment -%}
+{%- comment -%} One card for everything. The badge is the folder the item lives in. {%- endcomment -%}
 {%- assign d = include.doc -%}
+{%- include section.html url=d.url -%}
 {%- assign last_char = d.url | slice: -1 -%}
 <a class="card" href="{{ d.url | relative_url }}">
-  {%- if last_char == "/" %}
-  <span class="pill pill-folder">folder</span>
-  {%- else %}
-  <span class="pill pill-{{ d.kind | default: 'blog' }}">{{ d.kind | default: 'blog' }}</span>
-  {%- endif %}
+  <span class="pill pill-{{ section }}">{{ section }}</span>
   <h3>{{ d.title }}</h3>
   <p class="out">{{ d.description | strip_html | truncate: 220 }}</p>
   <div class="mini-meta">
     {%- if last_char == "/" %}
-    <span class="text-link">Open folder →</span>
+    <span class="text-link">Open →</span>
     {%- else %}
     <time datetime="{{ d.date | date: '%Y-%m-%d' }}">{{ d.date | date: '%b %-d, %Y' }}</time>
     {%- for t in d.tags limit: 3 %}<span>#{{ t }}</span>{% endfor %}

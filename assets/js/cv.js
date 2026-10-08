@@ -1,7 +1,5 @@
-/* Interactive résumé viewer: renders an expandable timeline from inlined data
-   so it works offline (file://) without any fetch. Uses native
-   <details>/<summary> for keyboard accessibility. Keep this in sync with
-   data/cv.json (kept as the human-readable source of truth). */
+/* Interactive résumé viewer: renders an expandable timeline from the CV data
+   below, using native <details>/<summary> for keyboard accessibility. */
 (function initCv() {
   const wrap = document.getElementById('cv-timeline');
   if (!wrap) return;

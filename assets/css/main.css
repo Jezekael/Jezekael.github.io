@@ -384,11 +384,10 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--term-border);
   color: var(--muted);
 }
-.pill-blog { color: var(--green); border-color: rgba(57, 255, 122, 0.35); }
-.pill-project { color: var(--amber); border-color: rgba(255, 184, 108, 0.35); }
-.pill-writeup { color: #7ab8ff; border-color: rgba(122, 184, 255, 0.35); }
-.pill-note { color: var(--muted); }
-.pill-folder { color: var(--text); border-color: rgba(255, 255, 255, 0.25); }
+.pill-posts { color: var(--green); border-color: rgba(57, 255, 122, 0.35); }
+.pill-notes { color: var(--muted); }
+.pill-research { color: var(--amber); border-color: rgba(255, 184, 108, 0.35); }
+.pill-writeups { color: #7ab8ff; border-color: rgba(122, 184, 255, 0.35); }
 
 .mini-meta {
   display: flex;

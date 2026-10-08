@@ -3,7 +3,8 @@ layout: default
 ---
 {%- comment -%}
   A folder page (index.md). Lists every page and sub-folder directly inside it:
-  sub-folders first, then pages newest first. Drop a file in the folder and it shows up.
+  sub-folders first, then pages newest first. With `flat: true` it instead lists
+  every page anywhere below it in one list. Drop a file in and it shows up.
 {%- endcomment -%}
 {%- assign base = page.url -%}
 {%- assign base_len = base | size -%}
@@ -14,6 +15,12 @@ layout: default
   {%- if d.url == base -%}{%- continue -%}{%- endif -%}
   {%- assign pre = d.url | slice: 0, base_len -%}
   {%- if pre != base -%}{%- continue -%}{%- endif -%}
+  {%- if page.flat -%}
+    {%- comment -%} Flat list: every page anywhere below this folder. {%- endcomment -%}
+    {%- if d.layout == "folder" or d.in_feed == false or d.date == nil -%}{%- continue -%}{%- endif -%}
+    {%- capture files -%}{{ files }}{% include card.html doc=d %}{%- endcapture -%}
+    {%- continue -%}
+  {%- endif -%}
   {%- assign rest = d.url | slice: base_len, 1000 -%}
   {%- assign parts = rest | split: "/" -%}
   {%- assign last_char = rest | slice: -1 -%}

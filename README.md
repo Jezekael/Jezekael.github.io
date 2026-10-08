@@ -8,13 +8,19 @@ CTF write-ups and the World Wide Threats & Actors (WWTA) incident map.
 Create **one Markdown file** in the right folder and push. Listings, the home page, the sitemap and
 the WWTA map update on their own.
 
-| Folder | URL | What goes there |
+| Folder | Badge | What goes there |
 |---|---|---|
-| `blog/` | `/blog/<file>.html` | Posts and short notes (add `kind: note` for a "note" badge) |
-| `projects/` | `/projects/<path>.html` | Projects, any depth of sub-folders |
-| `projects/writeups/hack_a_sat/<year>/` | | Hack-A-Sat write-ups |
-| `projects/wwta/incidents/` | | One file per incident (feeds the map) |
-| `projects/wwta/groups/` | | One file per threat actor |
+| `blog/posts/` | posts | Long-form posts |
+| `blog/notes/` | notes | Short notes |
+| `projects/research/` | research | Research projects (incl. the WWTA map) |
+| `projects/writeups/` | writeups | CTF write-ups, any depth of sub-folders |
+| `projects/research/wwta/incidents/` | | One file per incident (feeds the map) |
+| `projects/research/wwta/groups/` | | One file per threat actor |
+
+The Blog and Projects pages list everything below them in one list, newest first. Each card's
+badge is the first sub-folder the file sits in, so a new folder such as `projects/tools/` gets a
+"tools" badge automatically (add a `.pill-tools` colour in `assets/css/main.css` if you want one).
+URLs mirror the folders: `blog/posts/my-post.md` → `/blog/posts/my-post.html`.
 
 A post looks like this:
 
@@ -28,7 +34,7 @@ tags: [tag1, tag2]
 The post, in normal Markdown.
 ```
 
-Optional front matter: `kind: note`, `category`, `short_title` (breadcrumb label), `info` (extra sidebar rows,
+Optional front matter: `category`, `short_title` (breadcrumb label), `info` (extra sidebar rows,
 e.g. `info: { Status: In progress }`), `files` (downloadable files listed in the sidebar),
 `mermaid: true` (render ```` ```mermaid ```` blocks), `in_feed: false` (hide from the home page).
 
